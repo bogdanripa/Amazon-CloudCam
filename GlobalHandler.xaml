@@ -1,0 +1,195 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="GlobalHandler"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:ug="clr-namespace:UiPath.GSuite;assembly=UiPath.GSuite"
+ xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:uico="http://schemas.uipath.com/workflow/activities/contracts"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="errorInfo" Type="InArgument(uico:ExceptionHandlerArgs)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property Name="result" Type="OutArgument(uico:ErrorAction)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>GEX_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Activities.Contracts</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Activities.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Plugin.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="This sequence will be run when the process encounters an unmanaged error. We recommend you to log the errors, save the state of the process and let the process be killed in order to avoid running on faulted envrionments.&#xA;&#xA;Note:  Make sure that the 'errorInfo' and 'result' arguments are not removed" DisplayName="Global Exception Handler" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="answer" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="retry" />
+      <Variable x:TypeArguments="ui:Image" Name="ss" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="outerHTML" />
+      <Variable x:TypeArguments="ui:GenericValue" Name="googleSecret" />
+    </Sequence.Variables>
+    <ui:LogMessage DisplayName="Log Error" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[errorInfo.ActivityInfo.Id + &quot; &quot; + errorInfo.ActivityInfo.InstanceId + &quot;\n&quot; + errorInfo.ActivityInfo.Name + &quot;\n\n&quot; + errorInfo.Exception.ToString]" />
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Take Screenshot With Retry workflow" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Take Screenshot With Retry.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="selector" />
+        <InArgument x:TypeArguments="x:Int32" x:Key="retries">5</InArgument>
+        <InArgument x:TypeArguments="x:TimeSpan" x:Key="delayBetweenRetries">00:00:02</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="fileName">error.png</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InjectJsScript InputParameter="{x:Null}" ContinueOnError="True" DisplayName="Inject Js Script 'DIV'" sap2010:WorkflowViewState.IdRef="InjectJsScript_1" ScriptCode="function (element, input) {&#xD;&#xA;    return document.getElementsByTagName('html')[0].outerHTML;&#xD;&#xA;}">
+      <ui:InjectJsScript.ScriptOutput>
+        <OutArgument x:TypeArguments="ui:GenericValue">[outerHTML]</OutArgument>
+      </ui:InjectJsScript.ScriptOutput>
+      <ui:InjectJsScript.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="a8319f9a0c66844816a2a09fc0e07d6d" Selector="&lt;html app='chrome.exe' title='Amazon*' /&gt;&lt;webctrl css-selector='html' tag='HTML' /&gt;" WaitForReady="INTERACTIVE" />
+      </ui:InjectJsScript.Target>
+    </ui:InjectJsScript>
+    <ui:WriteTextFile DisplayName="Write Text File" FileName="outerHTML.txt" sap2010:WorkflowViewState.IdRef="WriteTextFile_3" Text="[outerHTML]" />
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CloseTabs workflow" UnSafe="False" WorkflowFileName="CloseTabs.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap2010:WorkflowViewState.IdRef>InvokeWorkflowFile_3</sap2010:WorkflowViewState.IdRef>
+    </ui:InvokeWorkflowFile>
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="googles" DisplayName="Get Asset" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+      <ui:GetRobotAsset.Value>
+        <OutArgument x:TypeArguments="ui:GenericValue">[googleSecret]</OutArgument>
+      </ui:GetRobotAsset.Value>
+    </ui:GetRobotAsset>
+    <uga:GSuiteApplicationScope ApiKey="{x:Null}" KeyPath="{x:Null}" Password="{x:Null}" ServiceAccountEmail="{x:Null}" UserEmail="{x:Null}" AuthenticationType="OAuthClientID" CredentialID="426096463194-hou500a5en41qmrb7e2msgm5aajdoe7f.apps.googleusercontent.com" CredentialSecret="[googleSecret]" DisplayName="Send Mail" HasDomainWideAccesss="False" sap2010:WorkflowViewState.IdRef="GSuiteApplicationScope_1" KeyType="json" Services="Gmail">
+      <uga:GSuiteApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ug:SimpleObjectContainer">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ug:SimpleObjectContainer" Name="GSuiteScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="exists" />
+            </Sequence.Variables>
+            <uga:SendEmail Bcc="{x:Null}" Cc="{x:Null}" Body="[errorInfo.ActivityInfo.Id + &quot; &quot; + errorInfo.ActivityInfo.InstanceId + Environment.NewLine + errorInfo.ActivityInfo.Name + Environment.NewLine + Environment.NewLine + errorInfo.Exception.ToString]" DisplayName="Send Mail Message" sap2010:WorkflowViewState.IdRef="SendEmail_1" IsDraft="False" IsHTML="False" Subject="Error with Amazon CloudCam" To="[{&quot;bogdanripa@gmail.com&quot;}]">
+              <uga:SendEmail.Attachments>
+                <scg:List x:TypeArguments="InArgument(x:String)" Capacity="8">
+                  <InArgument x:TypeArguments="x:String">ss0.png</InArgument>
+                  <InArgument x:TypeArguments="x:String">ss1.png</InArgument>
+                  <InArgument x:TypeArguments="x:String">error.png</InArgument>
+                  <InArgument x:TypeArguments="x:String">outerHTML.txt</InArgument>
+                </scg:List>
+              </uga:SendEmail.Attachments>
+            </uga:SendEmail>
+          </Sequence>
+        </ActivityAction>
+      </uga:GSuiteApplicationScope.Body>
+    </uga:GSuiteApplicationScope>
+    <Assign sap2010:Annotation.AnnotationText="Decide what will be done next&#xA;&#xA;Continue - the exception will be re-thrown&#xA;&#xA;Ignore - The exception will be ignored and the execution will continue with the next activity after the one which threw the exception&#xA;&#xA;Retry - Re-execute the activity which threw the exception&#xA;&#xA;Abort - The execution will stop" DisplayName="Choose Next Behavior" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="uico:ErrorAction">[result]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="uico:ErrorAction">[ErrorAction.Abort]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <sads:DebugSymbol.Symbol>d0dDOlxVc2Vyc1xib2dkYW4ucmlwYVxEb2N1bWVudHNcVWlQYXRoXEFtYXpvbi1DbG9kQ2FtXEdsb2JhbEhhbmRsZXIueGFtbCVSA5gBDgIBAVUzVTYCAQJaBVqmAgIBJ1sFYh0CASJjBWoZAgEcawVrlQECARlsBXEdAgEXcgV2GAIBE3cFjgEiAgEHjwEFlgEOAgEDWnFaowICASheP15AAgEmX05fVgIBJWBBYEoCASRbxwFb6AECASNlOGVDAgEgaJgBaPkBAgEfY0JjSAIBHmOsAWOcAgIBHWuFAWuSAQIBG2s+a00CARpsf2yPAQIBGHQ4dEYCARVyNnI/AgEUd5oCd6oCAgESd74Bd4gCAgERfQuLARYCAQiUATiUAUsCAQaRATmRAUECAQSBAQ2KAR0CAQmFATqFAUECARCBAaQDgQHKAwIBD4QBOoQBQQIBDoEBPoEBjgICAQ2BAYQDgQGgAwIBDIcBOocBRwIBC4YBOoYBQwIBCg==</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="LogMessage_1" sap:VirtualizedContainerService.HintSize="450,91" />
+      <sap2010:ViewStateData Id="InvokeWorkflowFile_2" sap:VirtualizedContainerService.HintSize="450,87" />
+      <sap2010:ViewStateData Id="InjectJsScript_1" sap:VirtualizedContainerService.HintSize="450,134" />
+      <sap2010:ViewStateData Id="WriteTextFile_3" sap:VirtualizedContainerService.HintSize="450,87" />
+      <sap2010:ViewStateData Id="InvokeWorkflowFile_3" sap:VirtualizedContainerService.HintSize="450,87" />
+      <sap2010:ViewStateData Id="GetRobotAsset_1" sap:VirtualizedContainerService.HintSize="450,22" />
+      <sap2010:ViewStateData Id="SendEmail_1" sap:VirtualizedContainerService.HintSize="414,287" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="436,411">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="GSuiteApplicationScope_1" sap:VirtualizedContainerService.HintSize="450,497">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_4" sap:VirtualizedContainerService.HintSize="450,282">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="472,1778">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="GEX_1" sap:VirtualizedContainerService.HintSize="512,1858" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

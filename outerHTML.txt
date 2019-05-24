@@ -1,0 +1,34 @@
+<html uipath_custom_id="12"><head><title>Amazon Cloud Cam Live View</title></head><body><source lang="xml" enclose="pre">
+    
+    
+
+
+
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/favicon/site.webmanifest">
+        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-site-verification" content="a2I3PFmrKcdYCeMWhBRmOAilmHDLshL_Sk-FzP_4Tog">
+        <link rel="stylesheet" type="text/css" href="https://m.media-amazon.com/images/I/71Eaota8V+L.css">
+    
+    
+        <div id="root"><div><div class="App"><div><header class="App-header" role="banner"><div class="navbar"><img src="https://m.media-amazon.com/images/I/019iq5KQdFL.svg" class="back-grid-view" alt="Back to grid view"><a href="/" class="logo-link"><img src="https://m.media-amazon.com/images/I/41cQIq+HfnL.svg" class="banner" alt="Amazon Camera Logo" role="presentation"></a><span class="page-title">Live View</span><img src="https://m.media-amazon.com/images/I/01K5ouuS-2L.svg" class="view-switch" alt="Back to grid view"><div class="dropdown-btn"><section class="name-initial">BR</section><span class="customer-name">Hello, Bogdan</span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAICAYAAAFVIUVZAAAABGdBTUEAALGPC/xhBQAAANJJREFUGBlVUEEOgjAQ7CIH9a48Aj6BT+GGGm8m/oCeTSgJB34iPkL9BJ4Velp3K9tA03Y7szPbbZWu61jJ8KAoDfJyiWvTbPjAEXiz1kaEOwc+/dCFAUTnPO84KRicd7QJySLHa2NaEUjUproFCtVWl+YpZGGqh0KMXDkGgAgINCleDvtEhIqTUyfwHYgqJetrvVqmpyx7e/V44I6//XCnl8YA0LprZiSZFwHs/PMG21I/CRcV3pmksvsDEVGfNGAqFt3MJOTfPJQhwNH/lSQp/gCrzIA7viXo6gAAAABJRU5ErkJggg==" class="dropdown-icon" alt="dropdown menu"></div></div></header><div class="row"><div class="dismissible-banner"><div class="banner-content"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAUCAYAAAHzZY3hAAAABGdBTUEAALGPC/xhBQAAAYhJREFUOBGNVE1LxDAQTXbrB8q2vfoT9Cq4J/1biiAqiNgf48Wz1wXx4s2DP8Brm5QKC9o4LzJhknZ3zaGZzHszeclkqhQNY+tP1ZjaYTHBZzjMlzlRjW2qAHFAFM1OzyLkyVp7GkJgdF13gFnjg2Fs8+2cm/oFGTswkMcrsa1584j8UEhPWs6Ri+wlb6KNqW/oFNeSHNmRPkJwIsrwDlLYkyOgTGf6scjLI/bpNAMDgxmicDe4BQn6Y7Vte+ZU/5xNt4+d0gva6keSfE34qgDIbddqoHu9jdiINsbMcRrOlMGQg7S8FLNyl30RARdEt1pprZdMCFvI1AxCbMiQpmbS2lOAFF4IR1CxLsl5R48kwkhXT/quyry8Z+5gRhmgC+8mBeEDlpYq4vlgIkVOsRjDN55RxI+bY1klEw2D+niebR4Y47hQBgbkjNpRgy3g01uTebFXvEoc9or/wV/roLbE+chnxf5YMBIMFEAy2prmQ6V1Re11AeKqESX4j+Q00ebfQhoh1uinXzEbLkHa4EO2AAAAAElFTkSuQmCC" class="subscription-icon" alt="Subscription"><span>Upgrade your security.<a href="https://www.amazon.com/dp/B073VTXCH7?ref_=piewebapp_ban_sub_swa_1" target="_blank" rel="noopener noreferrer"> Learn more </a>about your eligibility for a 30-day free trial.</span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAHlJREFUeNpiYBgFgw78////OhRrk6BHG6YPXY4Jhx4+IF5DjCVQNWugekhyzVNCPiFFLckayTacGAMoNhyfQaQazkhiJH5CSgQgdggjI+NVaiRdZFeTFCxMtM5XAxtE1IjkgUmmNM1oNC8qSNWAbgndi+tRMPAAIMAAmu2R2jMd+gAAAAAASUVORK5CYII=" class="dismiss-banner-btn" alt="Dismiss banner"></div></div></div></div><div class="row"><div><div uipath_custom_id="5" class="carousel-wrapper banner-showing"><div class="carousel-view" id="carousel"><div class="carousel slide"><ol class="carousel-indicators"><li class="active"></li> <li></li> </ol><div class="carousel-inner"><div class="item active"><div class="camera-name">Garage</div><div tabindex="0" class="switch-camera"><span>  Camera On/Off</span><label class="switch"><input type="checkbox" role="checkbox" aria-checked="true" value="on"><div class="slider round"></div></label></div><div class="liveview"><div class="liveview-controls"><div class="liveview-message"><p>Connecting...</p> </div></div><video autoplay="" playsinline="" tabindex="0"></video><div class="liveview-controlbar"><a href="/recordedclips/G070LJ16741403PV" class="recorded-clips-link">Recorded Clips <img src="https://m.media-amazon.com/images/I/01ClzZuzbPL.svg"></a><button class="toggle-fullscreen-btn"><img src="https://m.media-amazon.com/images/I/01PlIteg0kL.svg" alt="Full screen livestream"></button><button class="volume-btn"><img src="https://m.media-amazon.com/images/I/11fTkW0va-L.svg" alt="Mute livestream"></button></div></div></div><div class="item"><div class="camera-name">Dining Room</div><div tabindex="0" class="switch-camera"><span>  Camera On/Off</span><label class="switch"><input type="checkbox" role="checkbox" aria-checked="false" value="on"><div class="slider round"></div></label></div><div class="liveview"><div class="liveview-controls"><div class="liveview-message"><p>Your camera is off.</p> </div></div></div></div></div><a class="carousel-control left" role="button" href="#"><img src="https://m.media-amazon.com/images/I/019iq5KQdFL.svg" alt="Previous Live View "><span class="sr-only">Previous</span></a><a class="carousel-control right" role="button" href="#"><img src="https://m.media-amazon.com/images/I/01ClzZuzbPL.svg" alt="Next Live View"><span class="sr-only">Next</span></a></div></div></div></div></div></div></div></div>
+        <script>
+            window.config = {
+                api: {"clouddrive":"https://drive.amazonaws.com","piefs":"https://piefs-pimms.amazonpmi.com"},
+                customer: {"firstName":"Bogdan","lastName":"Ripa","initials":"BR","primaryEmail":"bogdanripa@yahoo.com"},
+                locale: "en_US",
+                weblabs: {"PIE_168415":"T1","PIE_165187":"C","PIE_154002":"T1"},
+                csrfToken: "guqr8h2SY4zBMCPvrL5uZNqBZ/Xgn1KIf7AAEE8AAAABAAAAAFy90LRyYXcAAAAAX+FVEZ8T3F+sECOQCzyQ"
+            };
+        </script>
+        <script type="text/javascript" src="https://m.media-amazon.com/images/I/71gvb+zAIIL.js"></script><script type="text/javascript" src="https://m.media-amazon.com/images/I/91uxr4Jc0xL.js"></script>
+    
+
+</body></html>
